@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Regostro de Usuarios</h2>
+		<h:form>
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{usuarioController.u.idUsuario}" required="true" />
+
+			<h:outputLabel value="Full Name" for="fullname"
+				styleClass="control-label" />
+			<p:inputText id="fullname" styleClass="form-control"
+				value="#{usuarioController.u.fullName}" required="true" />
+
+			<h:outputLabel value="Email" for="email" styleClass="control-label" />
+			<p:inputText id="email" styleClass="form-control"
+				value="#{usuarioController.u.email}" required="true" />
+
+			<h:outputLabel value="Display Name" for="displayname"
+				styleClass="control-label" />
+			<p:inputText id="displayname" styleClass="form-control"
+				value="#{usuarioController.u.displayName}" required="true" />
+
+			<h:outputLabel value="Número Teléfono" for="numphone"
+				styleClass="control-label" />
+			<p:inputText id="numphone" styleClass="form-control"
+				value="#{usuarioController.u.numPhone}" required="true" />
+
+			<h:outputLabel value="Nationality" for="nationality"
+				styleClass="control-label" />
+			<p:inputText id="nationality" styleClass="form-control"
+				value="#{usuarioController.u.nationality}" required="true" />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{usuarioController.insert()}"
+				action="listUsuario?faces-redirect=true" update="@form" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
