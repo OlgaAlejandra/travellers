@@ -25,7 +25,7 @@ public class Usuario {
 	@Column(name="displayName", nullable = false, length = 50)
 	private String displayName;
 	
-	@Column(name="numPhone", nullable = false)
+	@Column(name="numPhone", nullable = false, length = 10)
 	private int numPhone;
 	
 	@Column(name = "nationality", nullable = false, length = 50)
