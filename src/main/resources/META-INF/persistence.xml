@@ -4,6 +4,7 @@
 	<jta-data-source>java:/trabajoDS</jta-data-source>
 	<class>pe.edu.upc.entidades.Usuario</class>
 	<class>pe.edu.upc.entidades.AccommodationType</class>
+	<class>pe.edu.upc.entidades.TypeTrip</class>
 	<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
