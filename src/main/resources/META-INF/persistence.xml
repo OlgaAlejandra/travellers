@@ -5,6 +5,7 @@
 	<class>pe.edu.upc.entidades.Usuario</class>
 	<class>pe.edu.upc.entidades.AccommodationType</class>
 	<class>pe.edu.upc.entidades.TypeTrip</class>
+	<class>pe.edu.upc.entidades.BudgetTrip</class>
 	<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"

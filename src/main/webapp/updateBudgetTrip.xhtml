@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de BudgetTrip</h2>
+		<h:form>
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{budgetTripController.btp.idBudgetTrip}" required="true" />
+
+			<h:outputLabel value="Presupuesto" for="budget"
+				styleClass="control-label" />
+			<p:inputText id="budget" styleClass="form-control"
+				value="#{budgetTripController.btp.budgetAmount}" required="true" />
+
+			<h:outputLabel value="N °Días" for="numDays"
+				styleClass="control-label" />
+			<p:inputText id="numDays" styleClass="form-control"
+				value="#{budgetTripController.btp.numDays}" required="true" />
+
+			<h:outputLabel value="N° Personas" for="numPeople"
+				styleClass="control-label" />
+			<p:inputText id="numPeople" styleClass="form-control"
+				value="#{budgetTripController.btp.numPeople}" required="true" />
+
+			<h:outputLabel value="Type Trip" for="cboTypeTrip"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboTypeTrip"
+				value="#{budgetTripController.btp.typeTrip}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{budgetTripController.listaTypeTrips}"
+					var="t" itemLabel="#{t.name}" itemValue="#{t}" />
+			</p:selectOneMenu>
+
+			<p:commandButton value="Grabar"
+				actionListener="#{budgetTripController.update()}"
+				action="listBudgetTrip?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
