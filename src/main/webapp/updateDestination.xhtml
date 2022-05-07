@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de Destination</h2>
+		<h:form>
+
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{destinationController.des.idDestination}" required="true" />
+
+			<h:outputLabel value="Nombre" for="name" styleClass="control-label" />
+			<p:inputText id="name" styleClass="form-control"
+				value="#{destinationController.des.name}" required="true" />
+
+			<h:outputLabel value="Descripción" for="description"
+				styleClass="control-label" />
+			<p:inputText id="description" styleClass="form-control"
+				value="#{destinationController.des.description}" required="true" />
+
+			
+			<h:outputLabel value="País" for="cboCountry"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboCountry"
+				value="#{destinationController.des.country}">
+				<f:selectItem itemValue="Francia" itemLabel="Francia" />
+				<f:selectItem itemValue="México" itemLabel="México" />
+				<f:selectItem itemValue="USA" itemLabel="USA" />
+				<f:selectItem itemValue="Italia" itemLabel="Italia" />
+				<f:selectItem itemValue="Hungría" itemLabel="Hungría" />
+				<f:selectItem itemValue="Croacia" itemLabel="Croacia" />
+				<f:selectItem itemValue="Turquía" itemLabel="Turquía" />
+				<f:selectItem itemValue="Austria" itemLabel="Austria" />
+				<f:selectItem itemValue="Alemania" itemLabel="Alemania" />
+				<f:selectItem itemValue="Colombia" itemLabel="Colombia" />
+				<f:selectItem itemValue="Emiratos Árabes" itemLabel="Emiratos Árabes" />
+				<f:selectItem itemValue="Grecia" itemLabel="Grecia" />
+				<f:selectItem itemValue="Países Bajos" itemLabel="Países Bajos" />
+				<f:selectItem itemValue="Rusia" itemLabel="Rusia" />
+				<f:selectItem itemValue="Macao" itemLabel="Macao" />
+				<f:selectItem itemValue="Rumania" itemLabel="Rumania" />
+				<f:selectItem itemValue="Bulgaria" itemLabel="Bulgaria" />
+				<f:selectItem itemValue="Malasia" itemLabel="Malasia" />
+				<f:selectItem itemValue="Portugal" itemLabel="Portugal" />
+				<f:selectItem itemValue="Japón" itemLabel="Japón" />
+				<f:selectItem itemValue="Indonesia" itemLabel="Indonesia" />
+				<f:selectItem itemValue="Sudáfrica" itemLabel="Sudáfrica" />
+				<f:selectItem itemValue="Puerto Rico" itemLabel="Puerto Rico" />
+				<f:selectItem itemValue="Vietnam" itemLabel="Vietnam" />
+				<f:selectItem itemValue="Belarús" itemLabel="Belarús" />
+				<f:selectItem itemValue="China" itemLabel="China" />
+				<f:selectItem itemValue="Ucrania" itemLabel="Ucrania" />
+				<f:selectItem itemValue="Marruecos" itemLabel="Marruecos" />
+				<f:selectItem itemValue="Albania" itemLabel="Albania" />
+				<f:selectItem itemValue="Bélgica" itemLabel="Bélgica" />
+				<f:selectItem itemValue="Corea del Sur" itemLabel="Corea del Sur" />
+				<f:selectItem itemValue="Australia" itemLabel="Australia" />
+				<f:selectItem itemValue="Noruega" itemLabel="Noruega" />
+				<f:selectItem itemValue="Chile" itemLabel="Chile" />
+				<f:selectItem itemValue="Cambodia" itemLabel="Cambodia" />
+				<f:selectItem itemValue="Costa Rica" itemLabel="Costa Rica" />
+				<f:selectItem itemValue="Perú" itemLabel="Perú" />
+				<f:selectItem itemValue="El Salvador" itemLabel="El Salvador" />
+				<f:selectItem itemValue="Guatemala" itemLabel="Guatemala" />
+				<f:selectItem itemValue="Catar" itemLabel="Catar" />
+				<f:selectItem itemValue="Luxemburgo" itemLabel="Luxemburgo" />
+				<f:selectItem itemValue="Etiopía" itemLabel="Etiopía" />
+				<f:selectItem itemValue="Bolivia" itemLabel="Bolivia" />
+				<f:selectItem itemValue="Brazil" itemLabel="Brazil" />
+			</p:selectOneMenu>
+
+			<h:outputLabel value="N° Accommodations" for="numAccommodations"
+				styleClass="control-label" />
+			<p:inputText id="numAccommodations" styleClass="form-control"
+				value="#{destinationController.des.numAccommodation}"
+				required="true" />
+
+			<h:outputLabel value="N° Tours" for="numTours"
+				styleClass="control-label" />
+			<p:inputText id="numTours" styleClass="form-control"
+				value="#{destinationController.des.numTour}" required="true" />
+
+			<h:outputLabel value="N° Restaurants" for="numRestaurants"
+				styleClass="control-label" />
+			<p:inputText id="numRestaurants" styleClass="form-control"
+				value="#{destinationController.des.numRestaurant}" required="true" />
+
+			<h:outputLabel value="N° Attractions" for="numAttractions"
+				styleClass="control-label" />
+			<p:inputText id="numAttractions" styleClass="form-control"
+				value="#{destinationController.des.numAttraction}" required="true" />
+
+			<h:outputLabel value="Type Trip" for="cboTypeTrip"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboTypeTrip"
+				value="#{destinationController.des.typeTrip}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{destinationController.listaTypeTrips}"
+					var="t" itemLabel="#{t.name}" itemValue="#{t}" />
+			</p:selectOneMenu>
+
+			<p:commandButton value="Grabar"
+				actionListener="#{destinationController.update()}"
+				action="listDestination?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
