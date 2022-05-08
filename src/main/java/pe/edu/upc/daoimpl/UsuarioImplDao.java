@@ -50,6 +50,17 @@ public class UsuarioImplDao implements IUsuarioDao{
 			System.out.println("Error al eliminar en el dao");
 		}
 	}
+
+	@Transactional
+	@Override
+	public void update(Usuario u) {
+		try {
+			em.merge(u);
+		} catch (Exception e) {
+			System.out.println("Error al modificar en el dao usuario");
+		}
+		
+	}
 	
 	
 }

@@ -57,6 +57,20 @@ public class UsuarioController {
 			System.out.println("Error al eliminar en el controller usuario");
 		}
 	}
+	
+	public String updatePre(Usuario usuario) {
+		this.setU(usuario);
+		return"updateUsuario.xhtml";
+	}
+	
+	public void update() {
+		try {
+			uService.update(this.u);
+		} catch (Exception e) {
+			System.out.println("Error al modificar en el controlador de ususario");
+		}
+	}
+	
 	public Usuario getU() {
 		return u;
 	}

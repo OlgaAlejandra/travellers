@@ -15,10 +15,6 @@
 				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
 				emptyMessage="No existen registros" rowsIndexVar="item">
 
-				<p:column headerText="Id">
-					<h:outputText value="#{us.idUsuario}" />
-				</p:column>
-
 				<p:column headerText="Full Name">
 					<h:outputText value="#{us.fullName}" />
 				</p:column>
@@ -40,13 +36,18 @@
 				</p:column>
 
 
-				<p:column headerText="Operación">
+				<p:column headerText="Eliminar">
 					<h:commandLink action="listUsuario"
 						actionListener="#{usuarioController.delete(us)}">
-					Eliminar
+						<button type="button" class="btn btn-danger">X</button>
 					</h:commandLink>
 				</p:column>
+				<p:column headerText="Modificar">
+					<h:commandLink action="#{usuarioController.updatePre(us)}">
+						<button type="button" class="btn btn-info">+</button>
+					</h:commandLink>
 
+				</p:column>
 			</p:dataTable>
 
 

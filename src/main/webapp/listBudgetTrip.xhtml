@@ -35,16 +35,18 @@
 				<p:column headerText="TypeTrip">
 					<h:outputText value="#{buds.typeTrip.name}" />
 				</p:column>
-				
+
 				<p:column headerText="Operación">
 					<h:commandLink action="listBudgetTrip"
 						actionListener="#{budgetTripController.delete(buds)}">
-					Eliminar
+						<button type="button" class="btn btn-danger">X</button>
 					</h:commandLink>
 				</p:column>
-				
+
 				<p:column headerText="Operación">
-					<h:commandLink action="#{budgetTripController.updatePre(buds)}" value="Modificar" />
+					<h:commandLink action="#{budgetTripController.updatePre(buds)}">
+						<button type="button" class="btn btn-info">+</button>
+					</h:commandLink>
 				</p:column>
 			</p:dataTable>
 		</h:form>

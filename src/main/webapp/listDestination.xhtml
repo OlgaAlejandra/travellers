@@ -55,13 +55,15 @@
 				<p:column headerText="Operación">
 					<h:commandLink action="listDestination"
 						actionListener="#{destinationController.delete(dest)}">
-					Eliminar
+						<button type="button" class="btn btn-danger">X</button>
 					</h:commandLink>
 				</p:column>
 
 				<p:column headerText="Operación">
-					<h:commandLink action="#{destinationController.updatePre(dest)}"
-						value="Modificar" />
+					<h:commandLink action="#{destinationController.updatePre(dest)}">
+						<button type="button" class="btn btn-info">+</button>
+					</h:commandLink>
+
 				</p:column>
 			</p:dataTable>
 		</h:form>

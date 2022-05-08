@@ -24,13 +24,13 @@
 				</p:column>
 
 
-				<p:column headerText="Operación">
+				<p:column headerText="Eliminar">
 					<h:commandLink action="listTypeTrip"
 						actionListener="#{typeTripController.delete(tp)}">
-					Eliminar
+						<button type="button" class="btn btn-danger">X</button>
 					</h:commandLink>
 				</p:column>
-				
+
 			</p:dataTable>
 		</h:form>
 	</ui:define>

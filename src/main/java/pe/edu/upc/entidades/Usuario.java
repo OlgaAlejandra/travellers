@@ -28,7 +28,7 @@ public class Usuario {
 	private String displayName;
 	
 	@Column(name="numPhone", nullable = false, length = 10)
-	private String numPhone;
+	private int numPhone;
 	
 	@Column(name = "nationality", nullable = false, length = 50)
 	private String nationality;
@@ -38,7 +38,7 @@ public class Usuario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(int idUsuario, String fullName, String email, String displayName, String numPhone, String nationality) {
+	public Usuario(int idUsuario, String fullName, String email, String displayName, int numPhone, String nationality) {
 		super();
 		this.idUsuario = idUsuario;
 		this.fullName = fullName;
@@ -81,11 +81,12 @@ public class Usuario {
 	}
 
 
-	public String getNumPhone() {
+
+	public int getNumPhone() {
 		return numPhone;
 	}
 
-	public void setNumPhone(String numPhone) {
+	public void setNumPhone(int numPhone) {
 		this.numPhone = numPhone;
 	}
 

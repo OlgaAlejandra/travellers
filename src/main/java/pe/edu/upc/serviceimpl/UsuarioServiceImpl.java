@@ -30,5 +30,11 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		uDao.delete(idUsuario);
 	}
 
+	@Override
+	public void update(Usuario u) {
+
+		uDao.update(u);
+	}
+
 	
 }
