@@ -12,5 +12,7 @@ public interface IDestinationService {
 	
 	public void update(Destination d);
 	
+	public List<Destination> findByNameDestination(Destination d);
+	
 	public void delete(int idDestination);
 }

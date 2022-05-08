@@ -10,6 +10,28 @@
 	<ui:define name="content">
 		<h2>Lista de destinos</h2>
 		<h:form>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel value="Nombre de Destino:" for="name"
+							styleClass="control-label" />
+						<p:inputText id="name" styleClass="form-control"
+							value="#{destinationController.des.name}" />
+					</div>
+				</div>
+				<div class="col -sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<p:commandButton value="Buscar" update="lstDestinations"
+							actionListener="#{destinationController.findByNameDestination()}"
+							styleClass="btn btn-default btn-border" />
+						<p:commandButton value="Limpiar" update="lstDestinations"
+							actionListener="#{destinationController.list()}"
+							styleClass="btn btn-default" />
+					</div>
+				</div>
+			</div>
+
 			<p:dataTable id="lstDestinations"
 				value="#{destinationController.listaDestinations}" var="dest"
 				paginator="true" paginatorPosition="top"

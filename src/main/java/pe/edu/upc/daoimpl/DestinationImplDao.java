@@ -11,10 +11,8 @@ import javax.transaction.Transactional;
 import pe.edu.upc.dao.IDestinationDao;
 import pe.edu.upc.entidades.Destination;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-public class DestinationImplDao implements IDestinationDao{
+public class DestinationImplDao implements IDestinationDao {
 
 	@PersistenceContext(unitName = "travellers")
 	private EntityManager em;
@@ -41,7 +39,7 @@ public class DestinationImplDao implements IDestinationDao{
 		}
 		return listaDestinations;
 	}
-	
+
 	@Transactional
 	@Override
 	public void update(Destination d) {
@@ -62,7 +60,19 @@ public class DestinationImplDao implements IDestinationDao{
 			System.out.println("Error al eliminar en el Destination");
 		}
 	}
-	
-	
-	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Destination> findByNameDestination(Destination d) {
+		List<Destination> lista = new ArrayList<Destination>();
+		try {
+			Query q = em.createQuery("from Destination d where d.name like ?1");
+			q.setParameter(1, "%" + d.getName() + "%" );
+			lista = (List<Destination>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al nuscar destino");
+		}
+		return lista;
+	}
+
 }

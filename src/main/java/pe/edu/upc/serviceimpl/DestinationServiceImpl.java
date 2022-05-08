@@ -35,5 +35,10 @@ public class DestinationServiceImpl implements IDestinationService{
 		dDao.delete(idDestination);
 	}
 
+	@Override
+	public List<Destination> findByNameDestination(Destination d) {
+		return dDao.findByNameDestination(d);
+	}
+
 	
 }

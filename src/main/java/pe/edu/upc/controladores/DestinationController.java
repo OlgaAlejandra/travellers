@@ -82,6 +82,15 @@ public class DestinationController {
 		}
 	}
 	
+	public void findByNameDestination() {
+		try {
+			listaDestinations = dService.findByNameDestination(this.getDes());
+		} catch (Exception e) {
+			System.out.println("Error al buscar destino en el controlador");
+		}
+	}
+	
+	
 	public Destination getDes() {
 		return des;
 	}
