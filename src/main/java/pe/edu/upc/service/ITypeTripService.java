@@ -10,6 +10,8 @@ public interface ITypeTripService {
 	
 	public List<TypeTrip> list();
 	
+	public void update(TypeTrip tp);
+	
 	public void delete(int idTypeTrip);
 	
 }

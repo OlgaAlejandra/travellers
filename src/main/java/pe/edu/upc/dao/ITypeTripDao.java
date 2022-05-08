@@ -10,5 +10,7 @@ public interface ITypeTripDao {
 	
 	public List<TypeTrip> list();
 	
+	public void update(TypeTrip tp);
+	
 	public void delete(int idTypeTrip);
 }

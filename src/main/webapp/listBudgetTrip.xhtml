@@ -8,7 +8,7 @@
 
 <ui:composition template="master.xhtml">
 	<ui:define name="content">
-		<h2>Lista de vacunaciones</h2>
+		<h2>Lista de BudgetTrip</h2>
 		<h:form>
 			<p:dataTable id="lstBudgetTrips"
 				value="#{budgetTripController.listaBudgetTrips}" var="buds"
@@ -36,14 +36,14 @@
 					<h:outputText value="#{buds.typeTrip.name}" />
 				</p:column>
 
-				<p:column headerText="Operación">
+				<p:column headerText="Eliminar">
 					<h:commandLink action="listBudgetTrip"
 						actionListener="#{budgetTripController.delete(buds)}">
 						<button type="button" class="btn btn-danger">X</button>
 					</h:commandLink>
 				</p:column>
 
-				<p:column headerText="Operación">
+				<p:column headerText="Modificar">
 					<h:commandLink action="#{budgetTripController.updatePre(buds)}">
 						<button type="button" class="btn btn-info">+</button>
 					</h:commandLink>

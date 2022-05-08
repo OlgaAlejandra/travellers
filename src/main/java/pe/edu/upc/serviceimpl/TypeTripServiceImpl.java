@@ -30,5 +30,10 @@ public class TypeTripServiceImpl implements ITypeTripService{
 		tpDao.delete(idTypeTrip);
 	}
 
+	@Override
+	public void update(TypeTrip tp) {
+		tpDao.update(tp);
+	}
+
 	
 }

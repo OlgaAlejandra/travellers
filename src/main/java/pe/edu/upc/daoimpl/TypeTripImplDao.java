@@ -50,4 +50,15 @@ public class TypeTripImplDao implements ITypeTripDao{
 		}
 	}
 
+	@Transactional
+	@Override
+	public void update(TypeTrip tp) {
+
+		try {
+			em.merge(tp);
+		} catch (Exception e) {
+			System.out.println("Error al modificar en el dao TypeTrip");
+		}
+	}
+
 }

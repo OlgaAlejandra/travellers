@@ -59,6 +59,19 @@ public class TypeTripController {
 		}
 	}
 	
+	public String updatePre(TypeTrip typeTrip) {
+		this.setTp(typeTrip);
+		return "updateTypeTrip.xhtml";
+	}
+	
+	public void update() {
+		try {
+			tpService.update(this.tp);
+		} catch (Exception e) {
+			System.out.println("Eror al modificar en el controlador de TypeTrip");
+		}
+	}
+	
 	public TypeTrip getTp() {
 		return tp;
 	}
