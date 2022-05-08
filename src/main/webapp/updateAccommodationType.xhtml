@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de AccommodationType</h2>
+		<h:form>
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{accommodationTypeController.at.idAccommodationType}" />
+
+			<h:outputLabel value="Descripción" for="description"
+				styleClass="control-label" />
+			<p:inputText id="description" styleClass="form-control"
+				value="#{accommodationTypeController.at.description}" />
+
+			<h:outputLabel value="Número de Camas" for="numbeds"
+				styleClass="control-label" />
+			<p:inputText id="numbeds" styleClass="form-control"
+				value="#{accommodationTypeController.at.numBeds}" />
+
+			<h:outputLabel value="Precio" for="price" styleClass="control-label" />
+			<p:inputText id="price" styleClass="form-control"
+				value="#{accommodationTypeController.at.price}" />
+
+			<h:outputLabel value="Número de personas" for="numsleeps"
+				styleClass="control-label" />
+			<p:inputText id="numsleeps" styleClass="form-control"
+				value="#{accommodationTypeController.at.numSleeps}" />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{accommodationTypeController.update()}"
+				action="listAccommodationType?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

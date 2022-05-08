@@ -28,5 +28,10 @@ public class AccommodationTypeServiceImpl implements IAccommodationTypeService{
 		atDao.delete(idAccommodationType);
 	}
 
+	@Override
+	public void update(AccommodationType at) {
+		atDao.update(at);
+	}
+
 	
 }

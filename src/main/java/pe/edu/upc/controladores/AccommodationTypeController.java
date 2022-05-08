@@ -57,6 +57,21 @@ public class AccommodationTypeController {
 			System.out.println("Error al eliminar en el controller AccommodationType");
 		}
 	}
+	
+	public String updatePre(AccommodationType accommodationType) {
+		this.setAt(accommodationType);
+		return"updateAccommodationType.xhtml";
+	}
+	
+	
+	public void update() {
+		try {
+			atService.update(this.at);
+		} catch (Exception e) {
+			System.out.println("Error al modificar en el controlador de AccommodationType");
+		}
+	}
+	
 	public AccommodationType getAt() {
 		return at;
 	}

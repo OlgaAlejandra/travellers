@@ -50,5 +50,15 @@ public class AccommodationTypeImplDao implements IAccommodationTypeDao {
 			System.out.println("Error al eliminar en el dao");
 		}
 	}
+	
+	@Transactional
+	@Override
+	public void update(AccommodationType at) {
+		try {
+			em.merge(at);
+		} catch (Exception e) {
+			System.out.println("Error al modificar en el dao AccommodationType");
+		}
+	}
 
 }

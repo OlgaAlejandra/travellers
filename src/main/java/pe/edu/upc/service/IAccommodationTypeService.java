@@ -10,5 +10,7 @@ public interface IAccommodationTypeService {
 
 	public List<AccommodationType> list();
 
+	public void update(AccommodationType at);
+	
 	public void delete(int idAccommodationType);
 }

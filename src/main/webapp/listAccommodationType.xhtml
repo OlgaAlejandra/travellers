@@ -36,10 +36,16 @@
 					<h:outputText value="#{aty.numSleeps}" />
 				</p:column>
 
-				<p:column headerText="Operación">
+				<p:column headerText="Eliminar">
 					<h:commandLink action="listAccommodationTyp"
 						actionListener="#{accommodationTypeController.delete(aty)}">
 						<button type="button" class="btn btn-danger">X</button>
+					</h:commandLink>
+				</p:column>
+
+				<p:column headerText="Modificar">
+					<h:commandLink action="#{accommodationTypeController.updatePre(aty)}">
+						<button type="button" class="btn btn-info">+</button>
 					</h:commandLink>
 				</p:column>
 			</p:dataTable>

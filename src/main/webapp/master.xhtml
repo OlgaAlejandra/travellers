@@ -3,13 +3,23 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
+
 <h:head>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+
+	<link href="css/diseño.css" rel="stylesheet"></link>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
 </h:head>
 <body>
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-light"> <a
-		class="navbar-brand" href="#">Navbar</a>
+		class="navbar-brand" href="panel.xhtml"><img src="img/Logo.png"></img></a>
 
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav">
@@ -29,11 +39,13 @@
 			<li class="nav-item"><a class="nav-link" href="budgetTrip.xhtml">BudgetTrip</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="listBudgetTrip.xhtml">Lista BudgetTrip</a></li>
-			<li class="nav-item"><a class="nav-link" href="destination.xhtml">Destination</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="destination.xhtml">Destination</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="listDestination.xhtml">Lista Destination</a></li>
 		</ul>
 	</div>
+
 	</nav>
 	<div class="container">
 		<ui:insert name="content"></ui:insert>
