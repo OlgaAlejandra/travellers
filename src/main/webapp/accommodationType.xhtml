@@ -16,9 +16,9 @@
 			<h:outputLabel value="Descripción" for="description"
 				styleClass="control-label" />
 			<p:inputText id="description" styleClass="form-control"
-				value="#{accommodationTypeController.at.description}"
+				value="#{accommodationTypeController.at.description}" required="true"
 				requiredMessage="Debe ingresar descripción" />
-			<p:message for="descriptions"></p:message>
+			<p:message for="description"></p:message>
 			<br />
 			<h:outputLabel value="Número de Camas" for="numbeds"
 				styleClass="control-label" />
