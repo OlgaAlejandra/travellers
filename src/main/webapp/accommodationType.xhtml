@@ -9,28 +9,37 @@
 	<ui:define name="content">
 		<h2>Registro de AccommodationType</h2>
 		<h:form>
-			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<!-- <h:outputLabel value="Id" for="id" styleClass="control-label" />
 			<p:inputText id="id" styleClass="form-control"
-				value="#{accommodationTypeController.at.idAccommodationType}" />
+				value="#{accommodationTypeController.at.idAccommodationType}" /> -->
 
 			<h:outputLabel value="Descripción" for="description"
 				styleClass="control-label" />
 			<p:inputText id="description" styleClass="form-control"
-				value="#{accommodationTypeController.at.description}" />
-
+				value="#{accommodationTypeController.at.description}"
+				requiredMessage="Debe ingresar descripción" />
+			<p:message for="descriptions"></p:message>
+			<br />
 			<h:outputLabel value="Número de Camas" for="numbeds"
 				styleClass="control-label" />
 			<p:inputText id="numbeds" styleClass="form-control"
-				value="#{accommodationTypeController.at.numBeds}" />
-
+				value="#{accommodationTypeController.at.numBeds}"
+				requiredMessage="Debe ingresar N° camas" />
+			<p:message for="numbeds"></p:message>
+			<br />
 			<h:outputLabel value="Precio" for="price" styleClass="control-label" />
 			<p:inputText id="price" styleClass="form-control"
-				value="#{accommodationTypeController.at.price}" />
-
-			<h:outputLabel value="Número de personas" for="numsleeps" styleClass="control-label" />
+				value="#{accommodationTypeController.at.price}"
+				requiredMessage="Debe ingresar el precio" />
+			<p:message for="price"></p:message>
+			<br />
+			<h:outputLabel value="Número de personas" for="numsleeps"
+				styleClass="control-label" />
 			<p:inputText id="numsleeps" styleClass="form-control"
-				value="#{accommodationTypeController.at.numSleeps}" />
-
+				value="#{accommodationTypeController.at.numSleeps}"
+				requiredMessage="Debe ingresar el N° personas" />
+			<p:message for="numsleeps"></p:message>
+			<br/>
 			<p:commandButton value="Grabar"
 				actionListener="#{accommodationTypeController.insert()}"
 				action="listAccommodationType?faces-redirect=true" update="@form" />

@@ -10,24 +10,31 @@
 	<ui:define name="content">
 		<h2>Registro de BudgetTrip</h2>
 		<h:form>
-			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<!-- <h:outputLabel value="Id" for="id" styleClass="control-label" />
 			<p:inputText id="id" styleClass="form-control"
-				value="#{budgetTripController.btp.idBudgetTrip}" required="true" />
+				value="#{budgetTripController.btp.idBudgetTrip}" required="true" /> -->
 
 			<h:outputLabel value="Presupuesto" for="budget"
 				styleClass="control-label" />
 			<p:inputText id="budget" styleClass="form-control"
-				value="#{budgetTripController.btp.budgetAmount}" required="true" />
-
-			<h:outputLabel value="N °Días" for="numDays" styleClass="control-label" />
+				value="#{budgetTripController.btp.budgetAmount}" required="true"
+				requiredMessage="Debe ingresar presupuesto" />
+			<p:message for="budget"></p:message>
+			<br />
+			<h:outputLabel value="N °Días" for="numDays"
+				styleClass="control-label" />
 			<p:inputText id="numDays" styleClass="form-control"
-				value="#{budgetTripController.btp.numDays}" required="true" />
-
+				value="#{budgetTripController.btp.numDays}" required="true"
+				requiredMessage="Debe ingresar N° Días" />
+			<p:message for="numDays"></p:message>
+			<br />
 			<h:outputLabel value="N° Personas" for="numPeople"
 				styleClass="control-label" />
 			<p:inputText id="numPeople" styleClass="form-control"
-				value="#{budgetTripController.btp.numPeople}" required="true" />
-
+				value="#{budgetTripController.btp.numPeople}" required="true"
+				requiredMessage="Debe ingresar N° Personas" />
+			<p:message for="numPeople"></p:message>
+			<br />
 			<h:outputLabel value="Type Trip" for="cboTypeTrip"
 				styleClass="control-label" />
 			<p:selectOneMenu id="cboTypeTrip"

@@ -9,17 +9,20 @@
 	<ui:define name="content">
 		<h2>Registro de TypeTrip</h2>
 		<h:form>
-			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<!-- <h:outputLabel value="Id" for="id" styleClass="control-label" />
 			<p:inputText id="id" styleClass="form-control"
-				value="#{typeTripController.tp.idTypeTrip}" required="true" />
+				value="#{typeTripController.tp.idTypeTrip}" required="true" /> -->
 
 			<h:outputLabel value="Nombre" for="name" styleClass="control-label" />
 			<p:inputText id="name" styleClass="form-control"
-				value="#{typeTripController.tp.name}" required="true" />
-
+				value="#{typeTripController.tp.name}" required="true"
+				requiredMessage="Debe ingresar nombre de TypeTrip" />
+			<p:message for="name"></p:message>
+			<br />
 			<p:commandButton value="Grabar"
 				actionListener="#{typeTripController.insert()}"
 				action="listTypeTrip?faces-redirect=true" update="@form" />
+			<br />
 		</h:form>
 	</ui:define>
 </ui:composition>
