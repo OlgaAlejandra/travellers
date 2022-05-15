@@ -56,7 +56,7 @@ public class DestinationController {
 		try {
 			listaTypeTrips = tpService.list();
 		} catch (Exception e) {
-			System.out.println("Error al istar TypeTrips en el controlador BudgetTrip");
+			System.out.println("Error al listar TypeTrips en el controlador BudgetTrip");
 		}
 	}
 	

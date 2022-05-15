@@ -1,5 +1,7 @@
 package pe.edu.upc.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -79,5 +81,24 @@ public class AccommodationType {
 	public void setNumSleeps(int numSleeps) {
 		this.numSleeps = numSleeps;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idAccommodationType);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AccommodationType other = (AccommodationType) obj;
+		return idAccommodationType == other.idAccommodationType;
+	}
+
+
 	
 }

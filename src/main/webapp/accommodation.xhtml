@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de Accommodations</h2>
+		<h:form>
+
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{accommodationController.acc.idAccommodation}"
+				required="true" />
+			<br />
+
+			<h:outputLabel value="Nombre" for="name" styleClass="control-label" />
+			<p:inputText id="name" styleClass="form-control"
+				value="#{accommodationController.acc.name}" required="true" />
+			<br />
+
+			<h:outputLabel value="Descripción" for="description"
+				styleClass="control-label" />
+			<p:inputText id="description" styleClass="form-control"
+				value="#{accommodationController.acc.description}" required="true" />
+			<br />
+
+			<h:outputLabel value="Locación" for="location"
+				styleClass="control-label" />
+			<p:inputText id="location" styleClass="form-control"
+				value="#{accommodationController.acc.location}" required="true" />
+			<br />
+
+			<h:outputLabel value="Facilidades" for="facilities"
+				styleClass="control-label" />
+			<p:inputText id="facilities" styleClass="form-control"
+				value="#{accommodationController.acc.facilities}" required="true" />
+			<br />
+
+
+			<h:outputLabel for="availabilityIn"
+				value="Fecha de disponibilidad (entrada):"
+				styleClass="control-label" />
+			<p:calendar id="availabilityIn" pattern="dd/MM/yyyy"
+				value="#{accommodationController.acc.availabilityIn}"
+				showOn="button" timeZone="America/Mexico_City" required="true">
+			</p:calendar>
+			<br />
+			<h:outputLabel for="availabilityOut"
+				value="Fecha de disponibilidad (salida):" styleClass="control-label" />
+			<p:calendar id="availabilityOut" pattern="dd/MM/yyyy"
+				value="#{accommodationController.acc.availabilityOut}"
+				showOn="button" timeZone="America/Mexico_City" required="true">
+			</p:calendar>
+			<br />
+			<h:outputLabel value="N° Habitaciones Disponibles" for="numRoom"
+				styleClass="control-label" />
+			<p:inputText id="numRoom" styleClass="form-control"
+				value="#{accommodationController.acc.numRoomAvailable}"
+				required="true" />
+			<br />
+			<h:outputLabel value="Destino" for="cboDestino"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboDestino"
+				value="#{accommodationController.acc.destination}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{accommodationController.listaDestinations}"
+					var="d" itemLabel="#{d.name}" itemValue="#{d}" />
+			</p:selectOneMenu>
+			<br />
+			<h:outputLabel value="Tipo Habitación Popular" for="cboAType"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboAType"
+				value="#{accommodationController.acc.accommodationType}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{accommodationController.listaAccommodationTypes}"
+					var="at" itemLabel="#{at.description}" itemValue="#{at}" />
+			</p:selectOneMenu>
+			<p:commandButton value="Grabar"
+				actionListener="#{accommodationController.insert()}"
+				action="listAccommodation?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -70,7 +70,7 @@ public class DestinationImplDao implements IDestinationDao {
 			q.setParameter(1, "%" + d.getName() + "%" );
 			lista = (List<Destination>) q.getResultList();
 		} catch (Exception e) {
-			System.out.println("Error al nuscar destino");
+			System.out.println("Error al buscar destino");
 		}
 		return lista;
 	}

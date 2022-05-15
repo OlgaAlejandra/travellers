@@ -7,6 +7,9 @@
 	<class>pe.edu.upc.entidades.TypeTrip</class>
 	<class>pe.edu.upc.entidades.BudgetTrip</class>
 	<class>pe.edu.upc.entidades.Destination</class>
+	<class>pe.edu.upc.entidades.Accommodation</class>
+	<class>pe.edu.upc.entidades.Tour</class>
+	<class>pe.edu.upc.entidades.Review</class>
 	<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Accommodations</h2>
+		<h:form>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel value="Nombre de Accommodations:" for="name"
+							styleClass="control-label" />
+						<p:inputText id="name" styleClass="form-control"
+							value="#{accommodationController.acc.name}" />
+					</div>
+				</div>
+				<div class="col -sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<p:commandButton value="Buscar" update="lstAccommodations"
+							actionListener="#{accommodationController.findByNameAccommodation()}"
+							styleClass="btn btn-default btn-border" />
+						<p:commandButton value="Limpiar" update="lstAccommodations"
+							actionListener="#{accommodationController.list()}"
+							styleClass="btn btn-default" />
+					</div>
+				</div>
+			</div>
+
+			<p:dataTable id="lstAccommodations"
+				value="#{accommodationController.listaAccommodations}" var="acc"
+				paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				emptyMessage="No existen Accommodations registrados"
+				rowIndexVar="item">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{acc.idAccommodation}" />
+				</p:column>
+
+				<p:column headerText="Nombre">
+					<h:outputText value="#{acc.name}" />
+				</p:column>
+
+				<p:column headerText="Descripción">
+					<h:outputText value="#{acc.description}" />
+				</p:column>
+
+				<p:column headerText="Locación">
+					<h:outputText value="#{acc.location}" />
+				</p:column>
+
+				<p:column headerText="Facilidades">
+					<h:outputText value="#{acc.facilities}" />
+				</p:column>
+
+				<p:column headerText="Fecha Entrada">
+					<h:outputText value="#{acc.availabilityIn}">
+						<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Fecha Salida">
+					<h:outputText value="#{acc.availabilityOut}">
+						<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+					</h:outputText>
+
+				</p:column>
+
+				<p:column headerText="N° Habitaciones">
+					<h:outputText value="#{acc.numRoomAvailable}" />
+				</p:column>
+
+				<p:column headerText="Destino">
+					<h:outputText value="#{acc.destination.name}" />
+				</p:column>
+
+				<p:column headerText="Habitación Popular">
+					<h:outputText value="#{acc.accommodationType.description}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="lstAccommodations"
+						actionListener="#{accommodationController.delete(acc)}">
+						<button type="button" class="btn btn-danger">X</button>
+					</h:commandLink>
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="#{accommodationController.updatePre(acc)}">
+						<button type="button" class="btn btn-info">+</button>
+					</h:commandLink>
+
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
