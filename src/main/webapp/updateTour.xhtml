@@ -1,9 +1,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de Tours</h2>
+		<h:form>
 
-	<ui:composition template="">
-	</ui:composition>
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{tourController.to.idTour}" required="true" />
+			<br />
+			<h:outputLabel value="Nombre" for="name" styleClass="control-label" />
+			<p:inputText id="name" styleClass="form-control"
+				value="#{tourController.to.name}" required="true" />
+			<br />
+			<h:outputLabel value="Descripción" for="description"
+				styleClass="control-label" />
+			<p:inputText id="description" styleClass="form-control"
+				value="#{tourController.to.description}" required="true" />
+			<br />
+			<h:outputLabel value="Locación" for="location"
+				styleClass="control-label" />
+			<p:inputText id="location" styleClass="form-control"
+				value="#{tourController.to.location}" required="true" />
+			<br />
+			<h:outputLabel value="Precio" for="price" styleClass="control-label" />
+			<p:inputText id="price" styleClass="form-control"
+				value="#{tourController.to.price}" />
+			<br />
+			<h:outputLabel for="availability" value="Fecha de disponibilidad:"
+				styleClass="control-label" />
+			<p:calendar id="availability" pattern="dd/MM/yyyy"
+				value="#{tourController.to.availability}" showOn="button"
+				timeZone="America/Mexico_City" required="true">
+			</p:calendar>
+			<br />
+			<h:outputLabel value="Imagen" for="img" styleClass="control-label" />
+			<p:fileUpload id="img" value="#{tourController.to.image}"
+				mode="simple" skinSimple="true" />
+			<br />
+			<h:outputLabel value="Destino" for="cboDestino"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboDestino"
+				value="#{tourController.to.destination}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{tourController.listaDestinations}" var="d"
+					itemLabel="#{d.name}" itemValue="#{d}" />
+			</p:selectOneMenu>
+			<br />
+			<p:commandButton value="Grabar"
+				actionListener="#{tourController.update()}"
+				action="listTour?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>

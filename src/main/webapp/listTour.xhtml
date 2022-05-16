@@ -1,9 +1,91 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-	<ui:composition template="">
-	</ui:composition>
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Tours</h2>
+		<h:form>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel value="Nombre de Tour:" for="name"
+							styleClass="control-label" />
+						<p:inputText id="name" styleClass="form-control"
+							value="#{tourController.to.name}" />
+					</div>
+				</div>
+				<div class="col -sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<p:commandButton value="Buscar" update="lstTours"
+							actionListener="#{tourController.findByNameTour()}"
+							styleClass="btn btn-default btn-border" />
+						<p:commandButton value="Limpiar" update="lstTours"
+							actionListener="#{tourController.list()}"
+							styleClass="btn btn-default" />
+					</div>
+				</div>
+			</div>
+
+			<p:dataTable id="lstTours" value="#{tourController.listaTours}"
+				var="tou" paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				emptyMessage="No existen Tours registrados" rowIndexVar="item">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{tou.idTour}" />
+				</p:column>
+
+				<p:column headerText="Nombre">
+					<h:outputText value="#{tou.name}" />
+				</p:column>
+
+				<p:column headerText="Descripción">
+					<h:outputText value="#{tou.description}" />
+				</p:column>
+
+				<p:column headerText="Locación">
+					<h:outputText value="#{tou.location}" />
+				</p:column>
+
+				<p:column headerText="Precio">
+					<h:outputText value="#{tou.price}" />
+				</p:column>
+
+				<p:column headerText="Fecha Disponibilidad">
+					<h:outputText value="#{tou.availability}">
+						<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Imagen">
+					<p:graphicImage value="#{tou.image}">
+					</p:graphicImage>
+				</p:column>
+
+				<p:column headerText="Destino">
+					<h:outputText value="#{acc.destination.name}" />
+				</p:column>
+				
+				<p:column headerText="Operación">
+					<h:commandLink action="lstTours"
+						actionListener="#{tourController.delete(tou)}">
+						<button type="button" class="btn btn-danger">X</button>
+					</h:commandLink>
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="#{tourController.updatePre(tou)}">
+						<button type="button" class="btn btn-info">+</button>
+					</h:commandLink>
+
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>

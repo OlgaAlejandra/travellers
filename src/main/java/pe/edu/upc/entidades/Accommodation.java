@@ -1,5 +1,6 @@
 package pe.edu.upc.entidades;
 
+import java.sql.Blob;
 import java.util.Date;
 import java.util.Objects;
 
@@ -32,6 +33,9 @@ public class Accommodation {
 	@Column(name = "facilities", nullable = false, length = 200)
 	private String facilities;
 	
+	@Column(name="image", nullable =false)
+	private Blob image;
+	
 	@Column(name = "availabilityIn", nullable = false)
 	private Date availabilityIn;
 	
@@ -54,21 +58,26 @@ public class Accommodation {
 		// TODO Auto-generated constructor stub
 	}
 
+
+
 	public Accommodation(int idAccommodation, String name, String description, String location, String facilities,
-			Date availabilityIn, Date availabilityOut, int numRoomAvailable, AccommodationType accommodationType,
-			Destination destination) {
+			Blob image, Date availabilityIn, Date availabilityOut, int numRoomAvailable,
+			AccommodationType accommodationType, Destination destination) {
 		super();
 		this.idAccommodation = idAccommodation;
 		this.name = name;
 		this.description = description;
 		this.location = location;
 		this.facilities = facilities;
+		this.image = image;
 		this.availabilityIn = availabilityIn;
 		this.availabilityOut = availabilityOut;
 		this.numRoomAvailable = numRoomAvailable;
 		this.accommodationType = accommodationType;
 		this.destination = destination;
 	}
+
+
 
 	public int getIdAccommodation() {
 		return idAccommodation;
@@ -149,6 +158,19 @@ public class Accommodation {
 	public void setDestination(Destination destination) {
 		this.destination = destination;
 	}
+
+	
+	public Blob getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(Blob image) {
+		this.image = image;
+	}
+
+
 
 	@Override
 	public int hashCode() {

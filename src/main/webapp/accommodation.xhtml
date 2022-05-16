@@ -39,6 +39,9 @@
 				value="#{accommodationController.acc.facilities}" required="true" />
 			<br />
 
+			<h:outputLabel value="Imagen" for="img" styleClass="control-label" />
+			<p:fileUpload id="img" value="#{tourController.to.image}"
+				mode="simple" skinSimple="true" />
 
 			<h:outputLabel for="availabilityIn"
 				value="Fecha de disponibilidad (entrada):"
@@ -75,8 +78,9 @@
 			<p:selectOneMenu id="cboAType"
 				value="#{accommodationController.acc.accommodationType}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{accommodationController.listaAccommodationTypes}"
-					var="at" itemLabel="#{at.description}" itemValue="#{at}" />
+				<f:selectItems
+					value="#{accommodationController.listaAccommodationTypes}" var="at"
+					itemLabel="#{at.description}" itemValue="#{at}" />
 			</p:selectOneMenu>
 			<p:commandButton value="Grabar"
 				actionListener="#{accommodationController.insert()}"

@@ -59,6 +59,10 @@
 					<h:outputText value="#{acc.facilities}" />
 				</p:column>
 
+				<p:column headerText="Imagen">
+					<h:outputText value="#{tou.image}" />
+				</p:column>
+				
 				<p:column headerText="Fecha Entrada">
 					<h:outputText value="#{acc.availabilityIn}">
 						<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
